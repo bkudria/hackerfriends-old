@@ -85,7 +85,7 @@ function addUser(username) {
     }
     localStorage["users"] = users.join(',');
     buildUsersTable();
-    $("#users tr#" + username + " td.username").hide().fadeIn();
+    $("#users tr#" + username + " td.username").hide().fadeIn(1000);
     $('#message_box').hide();
 }
 
