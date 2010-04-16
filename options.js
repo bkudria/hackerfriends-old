@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-    buildUsersTable();
+    buildUsersTable(true);
 
     $("#add_user").button({
         icons: {primary: "ui-icon-radio-on"},
@@ -47,7 +47,7 @@ Array.prototype.remove = function (needle) {
 
 function buildUsersTable() {
     if (!localStorage["users"]) {localStorage["users"] = "";}
-    var users = localStorage["users"].split(',');
+    var users = localStorage["users"].split(',').sort();
     if(users.length == 1 && users[0] == "") {users = [];}
     if (!users || users.length == 0) {
         $("#message_box .ui-icon").addClass("ui-icon-info");
@@ -58,7 +58,7 @@ function buildUsersTable() {
         $("#users").hide();
         $("#users tbody tr").remove();
         $.each(users, function(index, username) {
-            var row = $('<tr id="'+username+'"><td>'+username+'</td><td id="remove"><button>Remove</button></td>');
+            var row = $('<tr id="'+username+'"><td class="username">'+username+'</td><td id="remove"><button>Remove</button></td>');
             $("#users tbody").append(row);
         });
 
@@ -83,8 +83,10 @@ function addUser(username) {
     if (!users.contains(username)) {
         users.push(username);
     }
-    localStorage["users"] = users.join(',')
+    localStorage["users"] = users.join(',');
     buildUsersTable();
+    $("#users tr#" + username + " td.username").hide().fadeIn();
+    $('#message_box').hide();
 }
 
 function removeUser(username) {
@@ -93,7 +95,8 @@ function removeUser(username) {
 
     users.remove(username);
 
-    localStorage["users"] = users.join(',')
+    localStorage["users"] = users.join(',');
+
     buildUsersTable();
 }
 

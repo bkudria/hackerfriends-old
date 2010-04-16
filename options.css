@@ -3,6 +3,9 @@
   margin: 1ex;
 }
 
+#users td.username {
+  font-family: monospace;
+}
 
 #add_user .ui-button-text {
   padding: 0;
@@ -25,12 +28,12 @@
 }
 
 #remove button {
-  font-size:    0.8em;
+  font-size:    0.6em;
   line-height:  1em;
 }
 
 #remove button .ui-button-text {
   padding:      0.1ex;
-  padding-left: 1.8em;
+  padding-left: 2.2em;
   padding-right: 1em
 }
