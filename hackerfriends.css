@@ -18,10 +18,10 @@ span.add_remove {
   margin-right: 1ex;
 }
 
-span.add_remove a.remove:link {
+span.add_remove a.remove {
   color: #ff6600 !important;
 }
 
-span.add_remove a.add:link {
+span.add_remove a.add {
   color: #339900 !important;
 }
