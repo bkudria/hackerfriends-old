@@ -1,0 +1,18 @@
+<html><script>
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if ("get_users" in request) {
+        sendResponse({users: getUsers()});
+    } else if ("add_user" in request) {
+        addUser(request.add_user);
+    } else if ("remove_user" in request) {
+        removeUser(request.add_user);
+    }
+});
+
+function getUsers() {
+    if (!localStorage["users"]) {localStorage["users"] = "";}
+    var users = localStorage["users"].split(',');
+    if(users.length == 1 && users[0] == "") {users = [];}
+    return users;
+}
+</script></html>

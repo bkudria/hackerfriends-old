@@ -1,0 +1,36 @@
+#message_box {
+  padding: 1ex;
+  margin: 1ex;
+}
+
+
+#add_user .ui-button-text {
+  padding: 0;
+}
+
+#add_user {
+  border: 2px solid gray;
+}
+
+#add_user.invalid {
+  border: 2px solid #ff6600;
+}
+
+#add_user.valid {
+  border: 2px solid green;
+}
+
+#add_user.loading {
+  border: 2px dotted yellow;
+}
+
+#remove button {
+  font-size:    0.8em;
+  line-height:  1em;
+}
+
+#remove button .ui-button-text {
+  padding:      0.1ex;
+  padding-left: 1.8em;
+  padding-right: 1em
+}

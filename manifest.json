@@ -1,0 +1,15 @@
+{
+  "name": "Hacker Friends",
+  "version": "1.0",
+  "description": "Highlight when your friends post to Hacker News.",
+  "options_page": "options.html",
+  "content_scripts": [{
+    "matches": ["http://news.ycombinator.com/*"],
+    "js": ["jquery/js/jquery-1.4.2.min.js", "jquery/js/jquery-1.4.2.min.js", "hackerfriends.js"],
+    "css": ["hackerfriends.css"]
+  }],
+  "background_page": "background.html",
+  "permissions": [
+    "http://news.ycombinator.com/"
+  ]
+}
