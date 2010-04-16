@@ -14,6 +14,14 @@ td.default.highlight {
 }
 
 span.add_remove {
-  margin-left: 0.5ex;
+  margin-left:  0.5ex;
   margin-right: 1ex;
+}
+
+span.add_remove a.remove:link {
+  color: #ff6600 !important;
+}
+
+span.add_remove a.add:link {
+  color: #339900 !important;
 }

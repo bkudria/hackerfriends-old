@@ -4,10 +4,31 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
         sendResponse({users: getUsers()});
     } else if ("add_user" in request) {
         addUser(request.add_user);
+        sendResponse({});
     } else if ("remove_user" in request) {
-        removeUser(request.add_user);
+        removeUser(request.remove_user);
+        sendResponse({});
     }
 });
+
+Array.prototype.contains = function (needle) {
+    for (i in this) {
+        if (this[i] == needle) return true;
+    }
+    return false;
+}
+
+Array.prototype.indexOf = function (needle) {
+    for (i in this) {
+        if (this[i] == needle) return i;
+    }
+    return false;
+}
+
+Array.prototype.remove = function (needle) {
+    index = this.indexOf(needle);
+    if(index) {return this.splice(index, 1);} else {return false};
+}
 
 function getUsers() {
     if (!localStorage["users"]) {localStorage["users"] = "";}
@@ -15,4 +36,25 @@ function getUsers() {
     if(users.length == 1 && users[0] == "") {users = [];}
     return users;
 }
+
+
+function addUser(username) {
+    var users = localStorage["users"].split(',');
+    if(users.length == 1 && users[0] == "") {users = [];}
+
+    if (!users.contains(username)) {
+        users.push(username);
+    }
+    localStorage["users"] = users.join(',');
+}
+
+function removeUser(username) {
+    var users = localStorage["users"].split(',');
+    if(users.length == 1 && users[0] == "") {users = [];}
+
+    users.remove(username);
+
+    localStorage["users"] = users.join(',');
+}
+
 </script></html>
