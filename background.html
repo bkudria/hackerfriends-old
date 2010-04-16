@@ -34,7 +34,7 @@ function getUsers() {
     if (!localStorage["users"]) {localStorage["users"] = "";}
     var users = localStorage["users"].split(',');
     if(users.length == 1 && users[0] == "") {users = [];}
-    return users;
+    return users.sort();
 }
 
 
@@ -45,7 +45,7 @@ function addUser(username) {
     if (!users.contains(username)) {
         users.push(username);
     }
-    localStorage["users"] = users.join(',');
+    localStorage["users"] = users.sort().join(',');
 }
 
 function removeUser(username) {
@@ -54,7 +54,7 @@ function removeUser(username) {
 
     users.remove(username);
 
-    localStorage["users"] = users.join(',');
+    localStorage["users"] = users.sort().join(',');
 }
 
 </script></html>

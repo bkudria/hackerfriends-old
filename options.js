@@ -83,7 +83,7 @@ function addUser(username) {
     if (!users.contains(username)) {
         users.push(username);
     }
-    localStorage["users"] = users.join(',');
+    localStorage["users"] = users.sort().join(',');
     buildUsersTable();
     $("#users tr#" + username + " td.username").hide().fadeIn(1000);
     $('#message_box').hide();
@@ -95,7 +95,7 @@ function removeUser(username) {
 
     users.remove(username);
 
-    localStorage["users"] = users.join(',');
+    localStorage["users"] = users.sort().join(',');
 
     buildUsersTable();
 }
